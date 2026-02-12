@@ -28,7 +28,7 @@ jobs:
           echo "latest_version=$latest" >> $GITHUB_OUTPUT
           
           # Get release notes from GitHub (GitHub tags use 'v' prefix)
-          release_notes=$(curl -s "https://api.github.com/repos/tomer-w/victron_mqtt/releases/tags/v$latest" | jq -r '.body // "No release notes available"')
+          release_notes=$(curl -s "https://api.github.com/repos/stixif/victron_mqtt/releases/tags/v$latest" | jq -r '.body // "No release notes available"')
           echo "release_notes<<EOF" >> $GITHUB_OUTPUT
           echo "$release_notes" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
@@ -94,3 +94,4 @@ jobs:
             ${{ steps.get_release.outputs.release_notes }}
           base: main
           labels: "dependencies"
+
